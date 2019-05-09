@@ -2,6 +2,11 @@
 <html lang="en">
   <head>
     <title></title>
+    <style>
+      #div1 {
+        background-color: #00ff00;
+      }
+    </style>
   </head>
   <body>
     <div class="class1" id="div1">
@@ -11,21 +16,40 @@
     <button class="class1" id="button1">Press me</button>
 
     <script>
-      // Retrieve elements with getElements
-      var class1 = document.getElementsByClassName('class1');
-      var button1 = document.getElementById('button1');
-      var divs = document.getElementsByTagName('DIV');
-
-      // Retrieve elements with query
-      var first = document.querySelector('.class1');
-      var all = document.querySelectorAll('.class1');
-
-      // Other getElements searchs
       var div1 = document.getElementById('div1');
-      var innerDivs = div1.getElementsByClassName('class1');
+      var div1Class = div1.getAttribute('class');
+      var div1HTML = div1.innerHTML;
+      var noValueDiv1Color = div1.style.backgroundColor;
+      var div1ComputedStyle = window.getComputedStyle(div1).backgroundColor
+
+      // Set attributes
+      div1.setAttribute('class', 'class2');
+
+      // Set html attribute
+      div1.innerHTML = 'Goodbye';
+
+      // Set style attributes
+      div1.style.backgroundColor = '#0000ff';
+      div1.setAttribute('style', 'height: 100px; background-color: #0000ff;');
+
+      // alert();
+
+
+      // Retrieve elements with getElements
+      // var class1 = document.getElementsByClassName('class1');
+      // var button1 = document.getElementById('button1');
+      // var divs = document.getElementsByTagName('DIV');
+      //
+      // // Retrieve elements with query
+      // var first = document.querySelector('.class1');
+      // var all = document.querySelectorAll('.class1');
+      //
+      // // Other getElements searchs
+      // var div1 = document.getElementById('div1');
+      // var innerDivs = div1.getElementsByClassName('class1');
 
       // Alerting the html on the variable
-      alert(innerDivs[0].innerHTML);
+      // alert(innerDivs[0].innerHTML);
 
     </script>
   </body>
