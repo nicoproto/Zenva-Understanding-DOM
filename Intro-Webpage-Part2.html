@@ -16,17 +16,37 @@
     <button class="class1" id="button1">Press me</button>
 
     <script>
-      var div1 = document.getElementById('div1');
+    // ----Events Listeners----
 
-      //Declare new variable to append later
-      var newDiv = document.createElement('div');
-      newDiv.innerHTML = "Hello there!";
+      document.addEventListener('DOMContentLoaded', function(event){
+        alert('Page has been loaded');
+      });
 
-      //Append sticks something to the end
-      div1.appendChild(newDiv);
+      document.getElementById('div1').addEventListener('mouseover', function(event){
+        event.target.style.backgroundColor = '#0000ff';
+      });
 
-      //Removes something from the body
-      document.body.removeChild(div1);
+      var button1 = document.getElementById('button1');
+      button1.addEventListener('click', function(event){
+        // Declaring target as the one who triggered the event
+        target = event.target;
+        alert(target.innerHTML);
+      });
+
+
+
+    // ----Adding & removing Html Elements Using Javascript----
+      // var div1 = document.getElementById('div1');
+      //
+      // //Declare new variable to append later
+      // var newDiv = document.createElement('div');
+      // newDiv.innerHTML = "Hello there!";
+      //
+      // //Append sticks something to the end
+      // div1.appendChild(newDiv);
+      //
+      // //Removes something from the body
+      // document.body.removeChild(div1);
 
     </script>
   </body>
