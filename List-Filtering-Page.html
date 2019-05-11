@@ -52,5 +52,33 @@
       <div class="adventure">Snorkelling Tour</div>
       <div class="adventure">Forest Experiencie</div>
     </div>
+
+    <script>
+      var adventureList = [];
+      var adventures = document.getElementsByClassName('adventure');
+      for (var i = 0; i < adventures.length; i++){
+        var adventureName = adventures[i].innerHTML;
+        adventureList.push(adventureName);
+      };
+
+      var searchBar = document.getElementById('search-bar');
+      // Keyup updates after you release a key
+      searchBar.addEventListener('keyup', function(event) {
+          var text = searchBar.value;
+          // Iterate throught the list checking if the element contains 'text'
+          for (var i = 0; i < adventures.length; i++) {
+              // indexOf returns a number >= 0 if adventureList[i] contains 'text'
+              if (adventureList[i].indexOf(text) < 0) {
+                // Hides the adventure
+                adventures[i].style.display = 'none';
+              } else {
+                // Shows the adventure
+                adventures[i].style.display = 'block';
+              };
+          };
+
+      });
+
+    </script>
   </body>
 </html>
