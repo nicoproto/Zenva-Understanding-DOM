@@ -47,25 +47,25 @@
   </head>
   <body>
     <div class="container">
-      <h1>Complete the form</h1>
+      <h1>Complete info</h1>
       <form id="saveForm">
         Name: <br><input class="textInput" type="text"><br>
         Address: <br><input type="text" class="textInput"><br>
         Age: <br><input type="text" class="textInput"><br>
-        Pets: <br><input type="checkbox" id="petCheckbox"><br>
+        Pets: <input type="checkbox" id="petCheckbox"><br>
         <div id="petSelection">
           Pet: <br>
           <select>
-            <option value="">Dog</option>
-            <option value="">Cat</option>
-            <option value="">Bird</option>
-            <option value="">Other</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Other">Other</option>
           </select>
         </div><br>
         <input type="submit" id="saveButton" value="Save">
       </form>
-
     </div>
+    
     <script>
       var checkbox = document.getElementById('petCheckbox');
       var selectionDiv = document.getElementById('petSelection');
@@ -76,8 +76,42 @@
             selectionDiv.style.display = 'none';
         };
       });
-
-
+      var saveForm = document.getElementById('saveForm');
+      saveForm.addEventListener('submit', function(event) {
+          //Because its client side, we interupt the the default refresh web
+          event.preventDefault();
+          // Its the same if we use saveForm[0].value;
+          var nameText = saveForm.elements[0].value;
+          var addressText = saveForm.elements[1].value;
+          var ageText = saveForm.elements[2].value;
+          var doesHavePets = saveForm.elements[3].checked;
+          var petText = 'No pets';
+          if(nameText == "") {
+            alert('Please enter a name');
+            return;
+          };
+          if(addressText == "") {
+            alert('Please enter an address');
+            return;
+          };
+          if(ageText == "") {
+            alert('Please enter an age');
+            return;
+          };
+          if(doesHavePets) {
+            petText = saveForm.elements[4].value;
+          };
+          if (petText == 'Dog') {
+            alert('Sorry, our dog capacity is full :()');
+            return;
+          };
+          alert('Booking saved! \nInfo:\n' +
+          nameText + '\n' +
+          addressText + '\n' +
+          ageText + '\n' +
+          petText
+          );
+      });
     </script>
   </body>
 </html>
