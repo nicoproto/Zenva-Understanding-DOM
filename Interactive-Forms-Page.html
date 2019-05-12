@@ -2,13 +2,55 @@
 <html lang="en">
   <head>
     <title>Interactive Forms Page</title>
+    <style>
+      body {
+        padding: 40px;
+        font-family: Arial;
+        background: #CED3DC;
+      }
+      h1 {
+        font-size: 20px;
+
+      }
+      .container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 10px;
+        margin: auto;
+        width: 200px;
+        height: 300px;
+        border: thick solid #90C2E7;
+        background-color: #4E8098;
+        border-radius: 10px;
+      }
+      .textInput {
+        margin-bottom: 10px;
+        width: 90%;
+      }
+      #petSelection {
+        margin-top: 10px;
+        display: none;
+      }
+      #saveButton {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        background-color: #90C2E7;
+        color: white;
+        border-radius: 2px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
+      <h1>Complete the form</h1>
       <form id="saveForm">
-        Name: <br><input type="text"><br>
-        Address: <br><input type="text"><br>
-        Age: <br><input type="text"><br>
+        Name: <br><input class="textInput" type="text"><br>
+        Address: <br><input type="text" class="textInput"><br>
+        Age: <br><input type="text" class="textInput"><br>
         Pets: <br><input type="checkbox" id="petCheckbos"><br>
         <div id="petSelection">
           Pet: <br>
@@ -17,9 +59,9 @@
             <option value="">Cat</option>
             <option value="">Bird</option>
             <option value="">Other</option>
-          </select><br>
-          <input type="submit" id="saveButton" value="Save">
-        </div>
+          </select>
+        </div><br>
+        <input type="submit" id="saveButton" value="Save">
       </form>
 
     </div>
